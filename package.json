@@ -20,6 +20,9 @@
     "url": "https://github.com/vdubturbo/acetomoato/issues"
   },
   "homepage": "https://github.com/vdubturbo/acetomoato#readme",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "dependencies": {
     "next": "^16.0.3",
     "react": "^19.2.0",
