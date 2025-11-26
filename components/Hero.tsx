@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-[#fdf9f3] to-[#c2a467] px-8 pt-16 pb-2 lg:pt-24">
+    <section className="bg-gradient-to-b from-[#fdf9f3] to-[#c2a467] px-8 pt-24 pb-2 lg:pt-32">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}

@@ -13,27 +13,27 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Splitout (ScottGPT)",
-    description: "An interactive AI-powered resume platform that answers questions about your professional experience in real-time",
+    title: "FedFusion.ai",
+    description: "AI-powered government contractor marketplace connecting buyers with verified vendors through intelligent RFP response generation",
     technicalFeatures: [
-      "RAG-based document retrieval with vector embeddings",
-      "Automated resume/document ingestion pipeline with extraction and indexing",
-      "Intelligent skill and tag management system with approval workflows",
-      "Token-optimized model switching for cost efficiency",
-      "PDF and DOCX export generation"
+      "RAG-based RFP response generation with vector embeddings (pgvector)",
+      "Multi-stage AI pipeline: Analysis → Gap Analysis → Content Generation → Compliance",
+      "SAM.gov and USASpending.gov API integration for contractor verification",
+      "Enhanced prompt engineering system with A/B testing framework",
+      "Real-time collaboration via Stream Chat integration"
     ],
     businessFeatures: [
-      "Transforms static resumes into interactive experiences",
-      "Reduces recruiter screening time with instant Q&A",
-      "Demonstrates technical competency through the product itself",
-      "Scales personal branding beyond traditional documents"
+      "Reduces RFP response time from weeks to hours",
+      "Improves proposal win rates through AI-optimized content",
+      "Streamlines contractor discovery with verified government data",
+      "Enables small businesses to compete with larger contractors"
     ],
-    imageUrl: "https://placehold.co/800x450/e25a21/ffffff?text=Splitout",
-    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Supabase", "OpenAI", "Cohere", "RAG"]
+    imageUrl: "https://placehold.co/800x450/e25a21/ffffff?text=FedFusion",
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "pgvector", "Cohere", "TailwindCSS", "Stream Chat"]
   },
   {
     id: 2,
-    title: "Sector1 (TrackTime)",
+    title: "Sector1.ai",
     description: "Professional motorsports live timing and telemetry platform with real-time race monitoring and data persistence",
     technicalFeatures: [
       "Real-time data synchronization at 5Hz with sub-200ms latency",
@@ -53,27 +53,27 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "FedFusion",
-    description: "AI-powered government contractor marketplace connecting buyers with verified vendors through intelligent RFP response generation",
+    title: "Splitout.ai",
+    description: "An interactive AI-powered resume platform that answers questions about your professional experience in real-time",
     technicalFeatures: [
-      "RAG-based RFP response generation with vector embeddings (pgvector)",
-      "Multi-stage AI pipeline: Analysis → Gap Analysis → Content Generation → Compliance",
-      "SAM.gov and USASpending.gov API integration for contractor verification",
-      "Enhanced prompt engineering system with A/B testing framework",
-      "Real-time collaboration via Stream Chat integration"
+      "RAG-based document retrieval with vector embeddings",
+      "Automated resume/document ingestion pipeline with extraction and indexing",
+      "Intelligent skill and tag management system with approval workflows",
+      "Token-optimized model switching for cost efficiency",
+      "PDF and DOCX export generation"
     ],
     businessFeatures: [
-      "Reduces RFP response time from weeks to hours",
-      "Improves proposal win rates through AI-optimized content",
-      "Streamlines contractor discovery with verified government data",
-      "Enables small businesses to compete with larger contractors"
+      "Transforms static resumes into interactive experiences",
+      "Reduces recruiter screening time with instant Q&A",
+      "Demonstrates technical competency through the product itself",
+      "Scales personal branding beyond traditional documents"
     ],
-    imageUrl: "https://placehold.co/800x450/e25a21/ffffff?text=FedFusion",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "pgvector", "Cohere", "TailwindCSS", "Stream Chat"]
+    imageUrl: "https://placehold.co/800x450/e25a21/ffffff?text=Splitout",
+    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Supabase", "OpenAI", "Cohere", "RAG"]
   },
   {
     id: 4,
-    title: "Middleseat",
+    title: "Middleseat.app",
     description: "Smart travel optimization platform that finds the optimal meeting location by analyzing flight prices across multiple origin cities",
     technicalFeatures: [
       "AI-powered natural language destination matching with multi-factor scoring",
@@ -93,7 +93,7 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Peerless",
+    title: "Automated Service Quote Generation",
     description: "AI-assisted quote generation system that combines customer requirements with product catalog data to produce professional proposals",
     technicalFeatures: [
       "AI-powered quote generation with product catalog integration",
