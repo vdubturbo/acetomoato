@@ -1,0 +1,54 @@
+# The Ace Tomato Company
+
+> Fresh Software, Delivered On Target
+
+## About
+
+The Ace Tomato Company builds custom SaaS platforms that solve real business problems. We focus on delivering production-ready applications with modern technology stacks, clean architecture, and exceptional user experiences.
+
+We help businesses grow by solving big challenges on modest budgets. Custom software delivered in weeks or months, not years.
+
+## Services
+
+- Custom SaaS Platform Development
+- AI Integration and Implementation
+- Real-time Data Systems
+- Web Application Development
+- Full-stack Software Consulting
+
+## Portfolio
+
+### FedFusion.ai
+AI-powered government contractor marketplace connecting buyers with verified vendors through intelligent RFP response generation.
+- RAG-based RFP response generation with vector embeddings
+- Multi-stage AI pipeline for content generation and compliance
+- SAM.gov and USASpending.gov API integration
+- Tech Stack: Next.js, TypeScript, PostgreSQL, Supabase, pgvector, Cohere
+
+### Sector1.ai
+Professional motorsports live timing and telemetry platform with real-time race monitoring and data persistence.
+- Real-time data synchronization at 5Hz with sub-200ms latency
+- D3.js-powered track visualization with live car positioning
+- Tech Stack: React, TypeScript, D3.js, Node.js, PostgreSQL, Redis, WebSocket
+
+### Splitout.ai
+Interactive AI-powered resume platform that answers questions about professional experience in real-time.
+- RAG-based document retrieval with vector embeddings
+- Automated resume/document ingestion pipeline
+- Tech Stack: React, Node.js, Express, PostgreSQL, Supabase, OpenAI, Cohere
+
+### Middleseat.app
+Smart travel optimization platform that finds the optimal meeting location by analyzing flight prices across multiple origin cities.
+- AI-powered natural language destination matching
+- Real-time price analysis across 47 US cities
+- Tech Stack: Next.js, TypeScript, PostgreSQL, Supabase, OpenAI
+
+### Automated Service Quote Generation
+AI-assisted quote generation system that combines customer requirements with product catalog data to produce professional proposals.
+- AI-powered quote generation with product catalog integration
+- Dynamic pricing rules with urgency-based adjustments
+- Tech Stack: Next.js, TypeScript, PostgreSQL, Supabase, OpenAI GPT-4
+
+## Contact
+
+Website: https://theacetomato.company

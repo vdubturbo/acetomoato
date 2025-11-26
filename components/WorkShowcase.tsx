@@ -1,4 +1,5 @@
 import Image from "next/image";
+import portfolioConfig from "@/data/portfolio-config.json";
 
 interface Project {
   id: number;
@@ -114,6 +115,11 @@ const projects: Project[] = [
 ];
 
 export default function WorkShowcase() {
+  const getVideoUrl = (projectId: number): string => {
+    const config = portfolioConfig.projects.find((p) => p.id === projectId);
+    return config?.videoUrl || "";
+  };
+
   return (
     <section id="work" className="bg-gradient-to-b from-[#c2a467] via-[#a8d5e2] via-30% to-[#87ceeb] pt-6 pb-20 px-8">
       {/* Divider Line */}
@@ -136,6 +142,7 @@ export default function WorkShowcase() {
         <div className="space-y-24">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
+            const videoUrl = getVideoUrl(project.id);
             return (
               <div key={project.id} className="space-y-6">
                 {/* Title, Description, and Tech Stack - Full Width */}
@@ -165,27 +172,39 @@ export default function WorkShowcase() {
                     isEven ? "" : "lg:grid-flow-dense"
                   }`}
                 >
-                  {/* Image/Video Placeholder */}
+                  {/* Image/Video */}
                   <div className={`${isEven ? "lg:order-1" : "lg:order-2"}`}>
                     <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl bg-white/60 backdrop-blur-sm border border-gray-200">
-                      <Image
-                        src={project.imageUrl}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                      {/* Video Play Button Overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-200 cursor-pointer group">
-                        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                          <svg
-                            className="w-8 h-8 text-[#e25a21] ml-1"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
+                      {videoUrl ? (
+                        <iframe
+                          src={videoUrl}
+                          title={project.title}
+                          className="absolute inset-0 w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <>
+                          <Image
+                            src={project.imageUrl}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                          />
+                          {/* Video Play Button Overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-200 cursor-pointer group">
+                            <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                              <svg
+                                className="w-8 h-8 text-[#e25a21] ml-1"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
 

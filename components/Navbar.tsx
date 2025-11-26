@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+const isDev = process.env.NODE_ENV === "development";
+
 export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#fdf9f3]/80 backdrop-blur-sm">
@@ -26,6 +28,14 @@ export default function Navbar() {
           >
             Contact Us
           </a>
+          {isDev && (
+            <a
+              href="/admin"
+              className="text-gray-500 hover:text-gray-700 transition-colors text-sm"
+            >
+              Admin
+            </a>
+          )}
         </div>
       </div>
     </nav>
