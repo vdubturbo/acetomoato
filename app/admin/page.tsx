@@ -14,7 +14,40 @@ const projectNames: Record<number, string> = {
   3: "Splitout.ai",
   4: "Middleseat.app",
   5: "Automated Service Quote Generation",
+  6: "HSCRA.net",
 };
+
+// Convert various YouTube URL formats to privacy-enhanced embed URL
+function convertToEmbedUrl(url: string): string {
+  if (!url.trim()) return "";
+
+  let videoId: string | null = null;
+
+  // Handle youtu.be/VIDEO_ID format
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (shortMatch) {
+    videoId = shortMatch[1];
+  }
+
+  // Handle youtube.com/watch?v=VIDEO_ID format
+  const watchMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  if (watchMatch) {
+    videoId = watchMatch[1];
+  }
+
+  // Handle youtube.com/embed/VIDEO_ID format (already embed, just needs params)
+  const embedMatch = url.match(/youtube(?:-nocookie)?\.com\/embed\/([a-zA-Z0-9_-]+)/);
+  if (embedMatch) {
+    videoId = embedMatch[1];
+  }
+
+  if (videoId) {
+    return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+  }
+
+  // Return original URL if not a recognized YouTube format
+  return url;
+}
 
 // Initial config - edit this directly and save the file
 const initialConfig: ProjectConfig[] = [
@@ -23,6 +56,7 @@ const initialConfig: ProjectConfig[] = [
   { id: 3, videoUrl: "" },
   { id: 4, videoUrl: "" },
   { id: 5, videoUrl: "" },
+  { id: 6, videoUrl: "" },
 ];
 
 export default function AdminPage() {
@@ -40,14 +74,22 @@ export default function AdminPage() {
     );
   };
 
+  // Generate config with converted URLs for output
+  const getConvertedConfig = () => {
+    return config.map((p) => ({
+      ...p,
+      videoUrl: convertToEmbedUrl(p.videoUrl),
+    }));
+  };
+
   const handleCopyConfig = () => {
-    const jsonOutput = JSON.stringify({ projects: config }, null, 2);
+    const jsonOutput = JSON.stringify({ projects: getConvertedConfig() }, null, 2);
     navigator.clipboard.writeText(jsonOutput);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const jsonOutput = JSON.stringify({ projects: config }, null, 2);
+  const jsonOutput = JSON.stringify({ projects: getConvertedConfig() }, null, 2);
 
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-8">
@@ -84,7 +126,7 @@ export default function AdminPage() {
                 onChange={(e) =>
                   handleVideoUrlChange(project.id, e.target.value)
                 }
-                placeholder="Enter video URL (YouTube embed, Vimeo, or direct link)"
+                placeholder="Paste YouTube URL (e.g., https://youtu.be/VIDEO_ID)"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e25a21] focus:border-transparent outline-none"
               />
             </div>
@@ -113,7 +155,8 @@ export default function AdminPage() {
             <strong>Instructions:</strong>
           </p>
           <ol className="text-sm text-yellow-800 list-decimal list-inside mt-2 space-y-1">
-            <li>Enter your video URLs above</li>
+            <li>Paste YouTube URLs above (share links, watch URLs, or embed URLs)</li>
+            <li>URLs are auto-converted to privacy-enhanced embeds with minimal branding</li>
             <li>Click &quot;Copy to Clipboard&quot;</li>
             <li>
               Paste into{" "}

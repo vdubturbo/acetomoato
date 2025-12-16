@@ -109,8 +109,28 @@ const projects: Project[] = [
       "Improves customer response time for sales teams",
       "Maintains audit trail of all quote requests and outcomes"
     ],
-    imageUrl: "https://placehold.co/800x450/e25a21/ffffff?text=Peerless",
+    imageUrl: "/quote.png",
     techStack: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "OpenAI GPT-4", "TailwindCSS", "React 19"]
+  },
+  {
+    id: 6,
+    title: "HSCRA.net",
+    description: "Comprehensive motorsports organization website for the Historic Stock Car Racing Association with member management, content publishing, and payment processing",
+    technicalFeatures: [
+      "Custom REST API client architecture bypassing standard Supabase libraries for performance",
+      "Stripe-integrated membership dues and payment processing",
+      "Mailchimp newsletter automation with subscriber tagging",
+      "Role-based admin panel with real-time content management",
+      "Animated photo carousel with Framer Motion transitions"
+    ],
+    businessFeatures: [
+      "Centralizes member communication and dues collection",
+      "Reduces administrative overhead with self-service registration",
+      "Preserves racing heritage through curated photo galleries and news",
+      "Increases engagement through newsletter and community features"
+    ],
+    imageUrl: "/hscra.png",
+    techStack: ["Next.js 15", "TypeScript", "PostgreSQL", "Supabase", "Stripe", "Mailchimp", "Framer Motion", "TailwindCSS"]
   }
 ];
 
@@ -191,18 +211,20 @@ export default function WorkShowcase() {
                             fill
                             className="object-cover"
                           />
-                          {/* Video Play Button Overlay */}
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-200 cursor-pointer group">
-                            <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                              <svg
-                                className="w-8 h-8 text-[#e25a21] ml-1"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path d="M8 5v14l11-7z" />
-                              </svg>
+                          {/* Video Play Button Overlay - only show for placeholder images */}
+                          {project.imageUrl.includes("placehold.co") && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-200 cursor-pointer group">
+                              <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                                <svg
+                                  className="w-8 h-8 text-[#e25a21] ml-1"
+                                  fill="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M8 5v14l11-7z" />
+                                </svg>
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </>
                       )}
                     </div>
